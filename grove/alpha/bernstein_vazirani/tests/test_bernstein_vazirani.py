@@ -81,3 +81,40 @@ def _oracle_test_helper(vec_a, b, x, trials=1):
     for result in results:
         y = result[0]
         assert y == expected
+
+
+# if __name__ == "__main__":
+#     import pyquil.api as api
+#
+#     # ask user to input the value for a
+#     bitstring = input("Give a bitstring representation for the vector a: ")
+#     while not (all([num in ('0', '1') for num in bitstring])):
+#         print("The bitstring must be a string of ones and zeros.")
+#         bitstring = input(
+#             "Give a bitstring representation for the vector a: ")
+#     vec_a = np.array(list(map(int, bitstring)))
+#
+#     # ask user to input the value for b
+#     b = int(input("Give a single bit for b: "))
+#     while b not in {0, 1}:
+#         print("b must be either 0 or 1")
+#         b = int(input("Give a single bit for b: "))
+#
+#     qvm = api.SyncConnection()
+#     qubits = range(len(vec_a))
+#     ancilla = len(vec_a)
+#
+#     oracle = oracle_function(vec_a, b, qubits, ancilla)
+#
+#     a, b, bv_program = run_bernstein_vazirani(qvm, oracle, qubits, ancilla)
+#     bitstring_a = "".join(list(map(str, a)))
+#     print("-----------------------------------")
+#     print("The bitstring a is given by: ", bitstring)
+#     print("b is given by: ", b)
+#     print("-----------------------------------")
+#     if input("Show Program? (y/n): ") == 'y':
+#         print("----------Quantum Programs Used----------")
+#         print("Program to find a given by: ")
+#         print(bv_program)
+#         print("Program to find b given by: ")
+#         print(oracle)
